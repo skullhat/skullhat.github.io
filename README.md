@@ -1,95 +1,38 @@
-<div align="center">
+# The Cyber Blog
 
-  # Chirpy Jekyll Theme
+Welcome to my personal penetration testing blog on GitHub! This repository serves as a comprehensive resource for individuals interested in the exciting field of cybersecurity and penetration testing. In this blog, I delve into various topics including web penetration testing, network penetration testing, methodologies, automation, exploit development, and more.
 
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+## Table of Contents
 
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
-  [![CI](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml/badge.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml)
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)](https://www.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cotes2020/jekyll-theme-chirpy&amp;utm_campaign=Badge_Grade)
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+1. [Web Penetration Testing](#web-penetration-testing)
+2. [Network Penetration Testing](#network-penetration-testing)
+3. [Methodologies](#methodologies)
+4. [Automation](#automation)
+5. [Exploit Development](#exploit-development)
+6. [Additional Topics](#additional-topics)
 
-  [**Live Demo →**][demo]
+## Web Penetration Testing
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+In this section, I explore the realm of web penetration testing. I cover the most common web vulnerabilities, such as SQL injection, cross-site scripting (XSS), and command injection. We'll dive into the OWASP Top 10 and go beyond, exploring advanced topics like session hijacking, authentication bypass, and server-side vulnerabilities. Additionally, I provide tips and techniques for securing web applications against potential attacks.
 
-</div>
+## Network Penetration Testing
 
-## Features
+Network penetration testing is crucial for assessing the security of an organization's infrastructure. In this section, I discuss various techniques for conducting comprehensive network reconnaissance, scanning for open ports and services, and exploiting network vulnerabilities and misconfigurations. I also delve into privilege escalation techniques within a network environment and share best practices for securing network infrastructure.
 
-<details>
-  <summary>
-    <i>Click to view features</i>
-  </summary>
-  <p>
+## Methodologies
 
-  - Dark / Light Theme Mode
-  - Localized UI language
-  - Pinned Posts
-  - Hierarchical Categories
-  - Trending Tags
-  - Table of Contents
-  - Last Modified Date of Posts
-  - Syntax Highlighting
-  - Mathematical Expressions
-  - Mermaid Diagram & Flowchart
-  - Dark / Light Mode Images
-  - Embed Videos
-  - Disqus / Utterances / Giscus Comments
-  - Search
-  - Atom Feeds
-  - Google Analytics
-  - Page Views Reporting
-  - SEO & Performance Optimization
+To ensure a systematic and effective approach to penetration testing, methodologies play a vital role. In this section, I examine popular penetration testing methodologies such as the Open Source Security Testing Methodology Manual (OSSTMM), Penetration Testing Execution Standard (PTES), and NIST SP 800-115. I provide step-by-step guides for conducting successful penetration tests, real-world case studies, and examples of engagements. You'll also find guidance on creating test plans and reporting findings.
 
-  </p>
-</details>
+## Automation
 
-## Documentation
+Automation is an essential aspect of modern-day penetration testing. In this section, I explore how to leverage automated tools and frameworks to enhance efficiency and effectiveness. I share techniques for customizing and extending existing tools to suit specific scenarios and demonstrate how to build your own automated scripts and tools. Discover how to integrate automation seamlessly into your penetration testing workflow.
 
-To explore usage, development, and upgrade guide of the project, please refer to
-the [Wiki][wiki].
+## Exploit Development
 
-## Contributing
+Understanding exploit development is crucial for penetrating systems and identifying vulnerabilities. In this section, I delve into the fundamentals of exploit development. We'll explore memory corruption vulnerabilities, including buffer overflows and format string vulnerabilities. I provide insights into techniques like reverse engineering and binary analysis. Together, we'll work through hands-on examples of developing exploits for real-world vulnerabilities. Responsible disclosure and ethical considerations are also discussed.
 
-Welcome to report bugs, help improve the code or submit new features.
-For more information, please see the ["Contributing Guidelines"][contribute-guide].
+## Additional Topics
 
-## Credits
+This section covers emerging topics and trends in the field of penetration testing. Stay up to date with the latest advancements in cybersecurity, explore new attack vectors and defenses, and delve into areas such as cloud security, IoT vulnerabilities, mobile application security, red teaming, and adversarial simulations. Ethical considerations and responsible hacking practices are given due importance.
 
-This theme is mainly built with [Jekyll][jekyllrb] ecosystem,
-[Bootstrap][bootstrap], [Font Awesome][icons] and some other [wonderful tools][lib].
-The avatar and favicon design come from [Clipart Max][image].
-
-Thanks to all the [contributors][contributors]. Also, folks who submitted issues
-or unmerged PRs should not be forgotten. Because they reported bugs, shared ideas,
-or inspired me to write more readable documentation.
-
-Last but not least, thanks to [JetBrains][jetbrains] for providing the
-_Open Source Development_ license.
-
-## Sponsoring
-
-If you'd like to sponsor this project, the following options are available.
-
-[![Ko-fi](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://ko-fi.com/coteschung)
-[![Wechat Pay](https://img.shields.io/badge/-Tip%20Me%20on%20WeChat-brightgreen?logo=wechat&logoColor=white)][donation]
-[![Alipay](https://img.shields.io/badge/-Tip%20Me%20on%20Alipay-blue?logo=alipay&logoColor=white)][donation]
-
-## License
-
-This work is published under [MIT][mit] License.
-
-[jekyllrb]: https://jekyllrb.com/
-[bootstrap]: https://getbootstrap.com/
-[icons]: https://fontawesome.com/
-[image]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/.github/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[lib]: https://github.com/cotes2020/chirpy-static-assets
-[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[donation]: https://sponsor.cotes.page/
-[mit]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
+I'm excited to share my knowledge and experiences with you in this blog. Join me on this journey of becoming proficient in penetration testing and mastering the art of securing digital assets. Feel free to explore the various articles, tutorials, and resources available in this repository. If you have any questions or suggestions, please don't hesitate to reach out. Let's dive into the fascinating world of cybersecurity together!
