@@ -6,6 +6,7 @@ comments: true
 categories: [thm, ctf]
 tags: [windows, active_directory]
 ---
+Hello everyone, today we are solving Relevant room from TryHackMe.
 
 ## Scope
 
@@ -27,7 +28,6 @@ ping -c 1 10.10.97.109
 PING 10.10.97.109 (10.10.97.109) 56(84) bytes of data.
 64 bytes from 10.10.97.109: icmp_seq=1 ttl=127 time=285 ms
 ```
-
 
 Based on the basic OS detection performed, it's likely that the target machine is running a Windows operating system. The TTL value by default is 128 in Windows machines.
 
@@ -59,13 +59,14 @@ The scan provides an educated guess about the host's operating system, suggestin
 ## SMB Protocol on 445
 
 ### Try Anonymous Login
-- Try null authentication, but getting nothing. Based on nmap output the `gust` account can access the shares.
+
+Try null authentication, but getting nothing. Based on nmap output the `gust` account can access the shares.
 
 ```bash
 crackmapexec smb 10.10.97.109 -u "" -p "" --shares
 ```
 
-- When trying `gust` has juicy folder called nt4wrksv with read and write permissions.
+When trying `gust` has juicy folder called nt4wrksv with read and write permissions.
 
 ```bash
 crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
@@ -73,16 +74,16 @@ crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 
 ![CME](/assets/img/uploads/20230614185247.png)
 
-- Found `passowrds.txt` then create smb directory and move it there.
+Found `passowrds.txt` then create smb directory and move it there.
 
 ``` bash
 crackmapexec smb 10.10.176.144 -u "gust" -p "" -M spider_plus
 smbclient //10.10.176.144/nt4wrksv -U ""
 ```
 
-- The users passwords was MD5 hashed.
+The users passwords was MD5 hashed.
 
- ## Crack The Hash
+## Crack The Hash
  
 `Qm9iIC0gIVBAJCRXMHJEITEyMw==`
 `QmlsbCAtIEp1dzRubmFNNG40MjA2OTY5NjkhJCQk`
