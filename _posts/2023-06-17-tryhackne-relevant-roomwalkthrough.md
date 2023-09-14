@@ -5,8 +5,6 @@ date: '2023-06-17 00:34:00 +0800'
 comments: true
 categories: [thm, ctf]
 tags: [windows, active_directory]
-published: true
-toc: true
 ---
 
 ## Scope
