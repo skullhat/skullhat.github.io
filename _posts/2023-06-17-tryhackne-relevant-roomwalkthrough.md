@@ -49,7 +49,6 @@ crackmapexec smb 10.10.97.109 -u "" -p "" --shares
 crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 
 ```
-![crackmapexec show us the SMB shares](/Commons/Pasted image 20230614185247.png)
 
 
 - Found `passowrds.txt` then create smb directory and move it there.
@@ -94,13 +93,11 @@ sudo rlwrap nc -lnvp 9001
 whoami /all
 systeminfo
 ```
-![Bob user priviages](/Commons/Pasted image 20230614214734.png)
 
 ## PrivEsc
 
 - We found `SeImpersonatePrivilage` so we can run [PrintSpoofer](https://github.com/itm4n/PrintSpoofer/releases/tag/v1.0) which is Abusing Impersonation Privileges From LOCAL/NETWORK SERVICE to SYSTEM by abusing SeImpersonatePrivilege on Windows 10 and Server 2016/2019.
 
-![We are SYSTEM!](/Commons/Pasted image 20230614224001.png)
 
 - Potatoes attack is detected by the AV.
 - There is a problem in kali preventing me performing Etrnalblue MS17-010
