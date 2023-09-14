@@ -95,10 +95,10 @@ comments:
   giscus:
     repo: "skullhat/skullhat.github.io"
     repo_id: 654773786
-    category: "Comments"
-    category_id: 7
-    mapping: "pathname" # optional, default to 'pathname'
-    input_position: "bottom" # optional, default to 'bottom'
+    category: "Announcements"
+    category_id: "2"
+    mapping: "title" # optional, default to 'pathname'
+    input_position: "top" # optional, default to 'bottom'
     lang: "site.lang" # optional, default to the value of `site.lang`
     reactions_enabled: "1" # optional, default to the value of `1`
 
