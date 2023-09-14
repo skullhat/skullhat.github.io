@@ -49,7 +49,7 @@ crackmapexec smb 10.10.97.109 -u "" -p "" --shares
 crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 
 ```
-
+![[/assets/img/uploads/Pasted image 20230614185247.png]]
 
 - Found `passowrds.txt` then create smb directory and move it there.
 
