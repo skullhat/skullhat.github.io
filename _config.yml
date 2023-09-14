@@ -89,7 +89,7 @@ comments:
     repo: skullhat/skullhat.github.io
     repo_id: 654773786
     category: comments
-    category_id: 2
+    category_id: DIC_kwDOFXQ2Oc4CQ06o
     mapping: # optional, default to 'pathname'
     input_position: # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
