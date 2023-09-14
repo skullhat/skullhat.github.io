@@ -2,7 +2,7 @@
 title: TryHackMe - Relevant Room Walkthrough
 author: skullhat
 date: '2023-06-17 00:34:00 +0800'
-comments: false
+comments: true
 categories:
   - thm
   - ctf
