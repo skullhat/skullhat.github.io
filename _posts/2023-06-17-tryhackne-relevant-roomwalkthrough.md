@@ -3,16 +3,13 @@ title: TryHackMe - Relevant Room Walkthrough
 author: skullhat
 date: '2023-06-17 00:34:00 +0800'
 comments: true
-categories:
-  - thm
-  - ctf
-tags:
-  - windows
-  - active_directory
+categories: [thm, ctf]
+tags: [windows, active_directory]
 published: true
 toc: true
 ---
-## Scope:
+
+## Scope
 
 - The client has asked that you secure two flags (no location provided) as proof of exploitation:
 	- User.txt
@@ -36,14 +33,16 @@ PING 10.10.97.109 (10.10.97.109) 56(84) bytes of data.
 
 Based on the basic OS detection performed, it's likely that the target machine is running a Windows operating system. The TTL value by default is 128 in Windows machines.
 
-## Enumeration using `nmap`
+## Enumeration using nmap
 
 Running nmap with -sC for default scripts, -sV enumerate version of every running service, -T4 is running script faster, -vvv to show me all the open ports as it is found and -oA for outputing all formats in case I want to pass it to another tool.
 
 ```bash
 nmap -sCV -O -T4 -vvv -oA nmap/relevent 10.10.97.109
 ```
-### Port Scan Results: The scan identified several open ports on the host:
+### Port Scan Results
+
+The scan identified several open ports on the host:
 
 - Port 80/tcp: Open, running Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) with various HTTP methods supported. The web server is likely running on Windows Server and presents itself as "IIS Windows Server."
 
@@ -55,11 +54,13 @@ nmap -sCV -O -T4 -vvv -oA nmap/relevent 10.10.97.109
 
 - Port 3389/tcp: Open, possibly running ms-wbt-server. An SSL certificate is present with the commonName "Relevant."
 
-### Operating System Detection: 
+### Operating System Detection
+
 The scan provides an educated guess about the host's operating system, suggesting it is likely running Microsoft Windows 2016, 2012, or 2008. However, it notes that the OS fingerprint is not ideal due to a missing closed TCP port.
 
-## SMB:445
-### Try Gust Authentication
+## SMB Protocol on 445
+
+### Try Anonymous Login
 - Try null authentication, but getting nothing. Based on nmap output the `gust` account can access the shares.
 
 ```bash
@@ -70,8 +71,8 @@ crackmapexec smb 10.10.97.109 -u "" -p "" --shares
 
 ```bash
 crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
-
 ```
+
 ![CME](/assets/img/uploads/20230614185247.png)
 
 - Found `passowrds.txt` then create smb directory and move it there.
@@ -80,13 +81,15 @@ crackmapexec smb 10.10.97.109 -u "gust" -p "" --shares
 crackmapexec smb 10.10.176.144 -u "gust" -p "" -M spider_plus
 smbclient //10.10.176.144/nt4wrksv -U ""
 ```
+
 - The users passwords was MD5 hashed.
 
-> The Hash
-Qm9iIC0gIVBAJCRXMHJEITEyMw==
-QmlsbCAtIEp1dzRubmFNNG40MjA2OTY5NjkhJCQk
+ ## Crack The Hash
+ 
+`Qm9iIC0gIVBAJCRXMHJEITEyMw==`
+`QmlsbCAtIEp1dzRubmFNNG40MjA2OTY5NjkhJCQk`
 
-> The Plain Text
+The Plain Text
 Bob:!P@$$W0rD!123
 Bill:Juw4nnaM4n420696969!$$$                                          
 
