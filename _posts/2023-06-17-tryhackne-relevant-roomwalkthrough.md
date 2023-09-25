@@ -1,6 +1,6 @@
 ---
 title: TryHackMe - Relevant Room Walkthrough
-author: skullhat
+author: Omer K.
 date: '2023-06-17 00:34:00 +0800'
 comments: true
 categories: [thm, ctf]
