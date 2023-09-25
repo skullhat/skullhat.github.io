@@ -1,6 +1,5 @@
 ---
 title: Cyber Alchemy Unlocking the Secrets of Hacking
-author: skullhat
 date: 2023-09-25 00:34:00 +0800
 categories: [Hacking, Hackers]
 tags: [Hacking, Hackers]
