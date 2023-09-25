@@ -90,7 +90,7 @@ The concept that hacking is not merely about having a set of tools at your dispo
 
 - [Insider - Australian bartender tells the story of how he once spent $1.6 million in 5 months after discovering an ATM glitch](https://www.businessinsider.com/australian-bartender-withdraws-over-million-dollars-atm-glitch-vice-podcast-2020-4?r=US&IR=T)
 
-- [Live Recon | @ippsec Talks About Hacking, His Favorite Tools, HackTheBox By NhamSec](https://www.youtube.com/watch?v=3R2HkX-opeQ)
+- [Live Recon ippsec Talks About Hacking, His Favorite Tools, HackTheBox By NhamSec](https://www.youtube.com/watch?v=3R2HkX-opeQ)
 
 
 
