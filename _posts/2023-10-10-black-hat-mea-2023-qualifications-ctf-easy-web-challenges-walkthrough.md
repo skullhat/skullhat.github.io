@@ -1,13 +1,12 @@
 ---
 title: Black Hat MEA 2023 Qualifications CTF Easy Web Challenges Walkthrough
-date: 2023-10-10 09:30:00 +0200  
-categories:  
- - ctf  
- - blackhat
+date: 2023-10-10 09:30:00 +0200
+categories:
+ - ctf
 tags:  
- - ctf  
- - blackhat  
- - web_applications  
+ - ctf
+ - blackhat
+ - web_applications
 ---
 
 On October 8th, at 13:00 GMT, the Black Hat MEAQ Qualifications CTF commenced. Alongside my brilliant team, "creepers_249," I actively participated, putting forth our best efforts to secure those elusive flags.
