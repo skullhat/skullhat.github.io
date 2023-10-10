@@ -1,6 +1,6 @@
 ---
 title: Black Hat MEA 2023 Qualifications CTF Easy Web Challenges Walkthrough
-date: 2023-10-10 10:30:00 +0200
+date: 2023-10-10 1:30:00 +0200
 categories:
   - ctf
   - blackhat
