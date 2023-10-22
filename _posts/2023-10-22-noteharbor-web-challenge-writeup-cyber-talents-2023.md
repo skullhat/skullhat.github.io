@@ -6,7 +6,7 @@ categories:
   - cybert_talents
 tags:
   - ctf
-  - cybert_talents
+  - cyber_talents
   - web_applications
 ---
 
