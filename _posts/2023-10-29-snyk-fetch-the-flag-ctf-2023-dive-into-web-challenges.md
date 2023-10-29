@@ -9,7 +9,7 @@ tags:
   - snyk
   - web_applications
 ---
-I'm thrilled to announce our latest achievement – a spectacular performance by our team, Creeprs_249, in the heart-pounding "Fetch the Flag CTF" competition. Organized by Snyk and John Hammond, this Capture the Flag event saw a staggering 1937 teams from around the world battling it out for supremacy. We're delighted to share that we secured the 85th position, a testament to our dedication and skill.
+I'm thrilled to announce our latest achievement – a spectacular performance by our team, Creeprs_249, in the heart-pounding "Fetch the Flag CTF" competition. Organized by Snyk and John Hammond, this Capture the Flag event saw a staggering 1937 teams from around the world battling it out for supremacy. We're delighted to share that we secured the 85th position, a testament to our dedication and skills.
 
 ![](/assets/img/uploads/1698500266749.jpg)
 
