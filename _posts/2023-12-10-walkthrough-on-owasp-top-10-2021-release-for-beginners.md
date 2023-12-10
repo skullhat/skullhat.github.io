@@ -1,6 +1,6 @@
 ---
 title: Walkthrough on OWASP Top 10 2021 Release for Beginners
-date: 2023-12-20 01:30:00 +0200
+date: 2023-12-10 01:30:00 +0200
 categories:
   - owasp
   - web
