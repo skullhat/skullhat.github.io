@@ -9,7 +9,7 @@ tags:
 ---
 Today we'll discuss The Open Worldwide Application Security Project (OWASP) top 10 vulnerabilities in the web applications which noticed, collected and organized by volunteers who work in major technical companies and researchers from all over the glob. Ranked in the list every few years to help security professionals and decision makers to make the internet safer.
 
-![Image](/assets/img/uploads/20231210213847.png]]
+![Image](/assets/img/uploads/20231210213847.png)
 
 Each vulnerability in this list is just a blueprint to what the attack scenario is like and how an attacker could use that to affect the confidentiality, integrity and accessibility of the web application, so many unintended advantages can be gained or even worse the server can be remotely accessed or down which can cause in some cased a some million dollars to the company.
 
@@ -130,22 +130,22 @@ Injection attacks in the context of web applications involve the malicious inser
 
 Is the ability to inject malicious JavaScript code into the web application. Take this grocery store search page:
 
-![Image](/assets/img/uploads/20230927160421.png]]
+![Image](/assets/img/uploads/20230927160421.png)
 
 When you type what you're searching for it appears:
 
-![Image](/assets/img/uploads/20230927160311.png]]
+![Image](/assets/img/uploads/20230927160311.png)
 
 When the attacker search for this `img` tag
 ```html
 <img src=x onerror=alert(1);>
 ```
 
-![Image](/assets/img/uploads/20230927162647.png]]
+![Image](/assets/img/uploads/20230927162647.png)
 
 Ops! it's show in the page but why ?
 
-![Image](/assets/img/uploads/20230927160246.png]]
+![Image](/assets/img/uploads/20230927160246.png)
 
 If we look closer to the JS code that handle the search, it just takes the search term and if it finds it is print it out, if not it prints the search term as HTML in the page. And it's our malicious code.
 
@@ -189,22 +189,22 @@ SQL Injection is a type of attack where an attacker manipulates a web applicatio
 
 Consider the following login page, the correct credentials are `admin:sunshine` so when entering them it shows a `Login Successful!` message.
 
-![Image](/assets/img/uploads/20230927162839.png]]
+![Image](/assets/img/uploads/20230927162839.png)
 
 And when using incorrect credentials, it shows `Login Failed!` message.
 
-![Image](/assets/img/uploads/20230927162923.png]]
+![Image](/assets/img/uploads/20230927162923.png)
 
 So what happened if we try injecting some SQL queries like:
 ```sql
 admin'or 1=1-- -
 ```
 
-![Image](/assets/img/uploads/20230927162956.png]]
+![Image](/assets/img/uploads/20230927162956.png)
 
 Boom! It logged us in.
 
-![Image](/assets/img/uploads/20230927163114.png]]
+![Image](/assets/img/uploads/20230927163114.png)
 
 To see why that's the behavior, we should look into the source code notice that it takes two values not validating them then combine all of them in one variable query and excute them.
 ```php
@@ -231,17 +231,17 @@ OS Command Injection, also known as Command Injection or Shell Injection, is a t
 
 Having this file control page as example, it controls the user directory allowing listing viewing and creating new files on that directory.
 
-![Image](/assets/img/uploads/20230927164727.png]]
+![Image](/assets/img/uploads/20230927164727.png)
 
 If we look closer the output is somehow similar with terminal font and way, what if it's really running some kind of terminal process in the background ?
 
-![Image](/assets/img/uploads/20230927164805.png]]
+![Image](/assets/img/uploads/20230927164805.png)
 
 Trying to inject this payload which combine the output, notice that indeed it's being printed on the screen.
 ```sh
 ; echo 'Hacked!'
 ```
-![Image](/assets/img/uploads/20230927165155.png]]
+![Image](/assets/img/uploads/20230927165155.png)
 
 The attack is caused by execute  `shell_exec()` which run system commands. To prevent it we sanitize and validate for anything other letters and numbers followed by file extension.
 ```php
@@ -257,9 +257,9 @@ The attack is caused by execute  `shell_exec()` which run system commands. To pr
 
 After that we prevent the attack.
 
-![Image](/assets/img/uploads/20230927165409.png]]
+![Image](/assets/img/uploads/20230927165409.png)
 
-![Image](/assets/img/uploads/20230927165420.png]]
+![Image](/assets/img/uploads/20230927165420.png)
 ### How they appear?
 
 User-supplied data is not validated, filtered, or sanitized by the application.
@@ -303,10 +303,10 @@ For example, the New York State IT department unintentionally exposed its intern
 
 Ok, if you install PhpMyAdmin to easily manage your database of your LAMP stack, it can be accessed on `/phpnyadmin` on your domain. You've done all of your develping and the website can accessed from all over the world. But you just missed that default credentials is `root:_blank_password_` and after an hour you find that your website is hacked Ops!
 
-![Image](/assets/img/uploads/20231210061432.png]] 
+![Image](/assets/img/uploads/20231210061432.png) 
 
 So, you learned from that you did and hurry up to change both default username and password.
-![Image](/assets/img/uploads/20231210062049.png]]
+![Image](/assets/img/uploads/20231210062049.png)
 
 ### How to prevent the attacks:
 
@@ -327,7 +327,7 @@ Here's how it works: WordPress allows users to attach files to posts, and there'
 
 If an attacker with author privileges can upload a specially crafted image file containing PHP code in its Exif metadata, they may be able to execute arbitrary code on your website. This means they could gain control over your site and potentially cause harm.
 
-![Image](/assets/img/uploads/20231210063652.png]]
+![Image](/assets/img/uploads/20231210063652.png)
 
 To safeguard your WordPress installation, it's crucial to update to a version that includes a fix for this vulnerability. Regularly updating your WordPress software helps ensure that you have the latest security patches and protects your site from potential threats.
 
@@ -365,14 +365,14 @@ Let's consider this login page. The credentials are `user:passwors` as testing p
 > *Note:*
 > In a real-world scenario, you should validate the credentials securely and have more secure credentials.
 
-![Image](/assets/img/uploads/20231210074321.png]]
+![Image](/assets/img/uploads/20231210074321.png)
 
 Noticing that before login in we have some session cookie. 
-![Image](/assets/img/uploads/20231210073924.png]]
+![Image](/assets/img/uploads/20231210073924.png)
 
 When we enter the default credential and refresh the page it's still the same value even though we're loged in, that is like when you and you twin swich on exam test there is no way to deffreaintat who is the user and who is not!
 
-![Image](/assets/img/uploads/20231210074257.png]]
+![Image](/assets/img/uploads/20231210074257.png)
 
 ```php
 function is_authenticated()
